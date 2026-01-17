@@ -9,14 +9,27 @@ public class Room {
         this.number = number;
     }
 
-    public void createGuest(Guest guest) {
+    public boolean createGuest(Guest guest) {
         if (guest == null) {
             throw new IllegalArgumentException("Guest cannot be null");
         }
+
+        if (occupant != null) {
+            System.out.println("Room " + number +
+                    " is already occupied. Guest cannot be assigned again.");
+            return false;
+        }
+
         this.occupant = guest;
+        System.out.println("Guest assigned to Room " + number);
+        return true;
     }
 
     public boolean isOccupied() {
         return occupant != null;
+    }
+
+    public int getNumber() {
+        return number;
     }
 }

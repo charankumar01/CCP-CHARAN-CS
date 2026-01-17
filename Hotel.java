@@ -11,15 +11,25 @@ public class Hotel {
 
     public void addRoom(Room room) {
         rooms.add(room);
+        System.out.println("Room " + room.getNumber() + " added to hotel.");
     }
 
     public boolean available() {
-        return rooms.stream().anyMatch(r -> !r.isOccupied());
+        for (Room room : rooms) {
+            if (!room.isOccupied()) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void createReservation() {
+    public boolean createReservation() {
         if (!available()) {
-            throw new IllegalStateException("No rooms available");
+            System.out.println("Reservation not possible. All rooms are occupied.");
+            return false;
         }
+
+        System.out.println("Reservation created successfully.");
+        return true;
     }
 }
