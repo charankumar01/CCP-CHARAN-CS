@@ -1,8 +1,12 @@
 public class ReservationPayer {
+
     private CreditCard creditCardDetails;
     private int id;
 
     public ReservationPayer(int id, CreditCard card) {
+        if (card == null) {
+            throw new IllegalArgumentException("Credit card required");
+        }
         this.id = id;
         this.creditCardDetails = card;
     }

@@ -1,4 +1,5 @@
 public class Room {
+
     private int number;
     private Guest occupant;
 
@@ -10,23 +11,28 @@ public class Room {
     }
 
     public boolean createGuest(Guest guest) {
-        if (guest == null) {
-            throw new IllegalArgumentException("Guest cannot be null");
-        }
 
-        if (occupant != null) {
-            System.out.println("Room " + number +
-                    " is already occupied. Guest cannot be assigned again.");
+        if (guest == null) {
+            System.out.println("Guest cannot be null");
             return false;
         }
 
-        this.occupant = guest;
-        System.out.println("Guest assigned to Room " + number);
+        if (occupant != null) {
+            System.out.println("Room " + number + " is already occupied");
+            return false;
+        }
+
+        occupant = guest;
+        System.out.println("Guest " + guest.getGuestName()
+                + " assigned to Room " + number);
         return true;
     }
 
     public boolean isOccupied() {
-        return occupant != null;
+        if (occupant == null) {
+            return false;
+        }
+        return true;
     }
 
     public int getNumber() {
