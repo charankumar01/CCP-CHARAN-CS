@@ -1,10 +1,11 @@
 public class RoomType {
+
     private String kind;
     private double cost;
 
     public RoomType(String kind, double cost) {
-        if (kind == null) {
-            throw new IllegalArgumentException("Room type is required");
+        if (kind == null || kind.isEmpty()) {
+            throw new IllegalArgumentException("Room type required");
         }
         if (cost <= 0) {
             throw new IllegalArgumentException("Cost must be positive");

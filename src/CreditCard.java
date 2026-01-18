@@ -1,4 +1,5 @@
 public class CreditCard {
+
     private String cardNumber;
 
     public CreditCard(String cardNumber) {
