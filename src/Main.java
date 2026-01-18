@@ -72,5 +72,6 @@ public class Main {
         chain.cancelReservation();
 
         System.out.println("\n===== SYSTEM EXECUTED SUCCESSFULLY =====");
+        System.out.println("/n");
     }
 }
