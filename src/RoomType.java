@@ -1,10 +1,9 @@
 public class RoomType {
-
     private String kind;
     private double cost;
 
     public RoomType(String kind, double cost) {
-        if (kind == null || kind.isEmpty()) {
+        if (kind == null || kind.trim().isEmpty()) {
             throw new IllegalArgumentException("Room type required");
         }
         if (cost <= 0) {
